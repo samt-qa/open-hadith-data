@@ -1,0 +1,26 @@
+# شاهد الشاملة: للمقابلة فقط، لا يُنشر (القاعدة 5)
+base/shamela/*
+!base/shamela/.gitkeep
+!base/shamela/MANIFEST.tsv
+# مصوّرات المالك وصور الصفحات
+sources/**/*.pdf
+work/pages/*
+!work/pages/.gitkeep
+# كتب الشاملة (epub) التي وضعها المالك: مراجع محلية لا تُنشر
+/الأجزاء الحديثية/
+/شروح الحديث/
+/علوم الحديث/
+/كتب التخريج والزوائد/
+/كتب السنة/
+__pycache__/
+# مخرجات مولَّدة: تُعاد بـ make، وفيها حواشي المحققين وأحكامهم (لا تُنشر قبل فصل نسخة النشر)
+/text/
+/review/*-queue.jsonl
+/review/*-variants*.jsonl
+/review/index.html
+/work/
+# الشاهد A يُنزَّل بـ make fetch-a، ومصوّرات المالك محلية
+/base/fawazahmed0/*
+/sources/
+/Books/
+*.pyc
