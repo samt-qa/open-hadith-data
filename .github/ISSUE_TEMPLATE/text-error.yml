@@ -1,0 +1,32 @@
+name: "خطأ في نص حديث / Text error"
+description: "أبلغ عن خطأ في نص حديث مع الدليل / Report a text error with evidence"
+labels: ["text-error"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: "الموضع / Location"
+      description: "الكتاب ورقم الحديث، مثل: bukhari 1234"
+      placeholder: "bukhari 1234"
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: "النص الحالي / Current reading"
+      description: "انسخ الكلمات موضع الخطأ كما هي في المستودع"
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: "الصواب / Proposed reading"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: "الدليل / Evidence"
+      description: "الطبعة المطبوعة (الجزء والصفحة)، أو مخطوط، أو طبعة رقمية أخرى. لا يُقبل تصحيح بلا شاهد."
+    validations:
+      required: true

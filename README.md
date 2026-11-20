@@ -1,8 +1,20 @@
+<div align="center">
+
 # open-hadith-data
 
 **Verified Arabic hadith texts — the Nine Books and 18 further collections — extracted to structured JSON and cross-checked against independent editions.**
 
-نصوص كتب الحديث بالعربية في صيغة JSON منظَّمة: الكتب التسعة و18 كتابًا من الزيادات، وكل نص مقابَل آليًّا بطبعة أخرى مستقلة، وكل تصحيح موثَّق بشهوده.
+<p dir="rtl">نصوص كتب الحديث بالعربية في صيغة JSON منظَّمة، كلٌّ منها مقابَل بطبعة أخرى مستقلة، وكل تصحيح موثَّق بشهوده.</p>
+
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA.md)
+![Collections](https://img.shields.io/badge/collections-27-green.svg)
+![Hadith](https://img.shields.io/badge/hadith-251%2C348-green.svg)
+![Documented fixes](https://img.shields.io/badge/source%20fixes-66-orange.svg)
+
+[الكتب](#الكتب--collections) · [بنية السجل](#بنية-السجل--record-format) · [البناء](#البناء--build) · [المساهمة](CONTRIBUTING.md) · [الرخصة](#الرخصة--license)
+
+</div>
 
 ---
 
@@ -84,4 +96,11 @@ make test                               # فحص الانحدار
 - النصوص مأخوذة من [المكتبة الشاملة](https://shamela.ws) عبر [تراث](https://app.turath.io). المصادر كلها مسجّلة في [`PROVENANCE.md`](PROVENANCE.md).
 - **متون الأحاديث** ملك عام.
 - **حواشي المحققين وأحكامهم** (`notes`، `grades`) **وتشكيل الطبعات وترقيمها** من عمل أصحابها، ولهم حقوقهم. لذلك لا يُنشر ملف بيانات قبل فصل نسخة نشر خالية منها.
-- رخصة الكود والمنهج: انظر `LICENSE`.
+
+## الرخصة / License
+
+- **الكود** (`scripts/`، `tests/`، `Makefile`): رخصة [MIT](LICENSE).
+- **البيانات والقرارات والتوثيق:** رخصة [CC BY 4.0](LICENSE-DATA.md). استعملها كما شئت بشرط ذكر المشروع.
+- **متون الأحاديث:** ملك عام. **وعمل المحققين المعاصرين:** حقٌّ لأصحابه. التفصيل في [`LICENSE-DATA.md`](LICENSE-DATA.md).
+
+للاستشهاد بالمشروع انظر [`CITATION.cff`](CITATION.cff). وللإبلاغ عن خطأ في نص استعمل [قالب البلاغ](../../issues/new/choose).

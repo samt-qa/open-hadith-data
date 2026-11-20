@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this dataset or its methodology, please cite it as below."
+title: "open-hadith-data: verified Arabic hadith texts cross-checked against independent editions"
+authors:
+  - name: "samt-qa"
+repository-code: "https://github.com/samt-qa/open-hadith-data"
+license: MIT
+keywords:
+  - hadith
+  - sunnah
+  - arabic
+  - dataset
+  - arabic-nlp
+  - textual criticism
+abstract: >-
+  Structured JSON texts of the Nine Books of hadith and 18 further
+  collections, extracted from al-Maktaba al-Shamela, collated word by word
+  against an independent second edition, with every source correction
+  documented alongside its witnesses.
