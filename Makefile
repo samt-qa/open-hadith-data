@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test pilot fetch-a check-a inventory shamela-core shamela-sunnah bukhari muslim abudawud tirmidhi nasai ibnmajah malik darimi ahmad additions tabarani tayalisi humaydi ibnjarud adabmufrad tahawi nasaikubra ibnabishaybah hakim daraqutni ibnkhuzaymah ibnhibban abdurrazzaq bayhaqi abuyala bazzar
+.PHONY: test release pilot fetch-a check-a inventory shamela-core shamela-sunnah bukhari muslim abudawud tirmidhi nasai ibnmajah malik darimi ahmad additions tabarani tayalisi humaydi ibnjarud adabmufrad tahawi nasaikubra ibnabishaybah hakim daraqutni ibnkhuzaymah ibnhibban abdurrazzaq bayhaqi abuyala bazzar
 
 # أبو داود: ت محيي الدين عبد الحميد (1726)، ومعه حكم الألباني في حقل grades
 abudawud:
@@ -154,3 +154,7 @@ shamela-sunnah:
 # فحص الانحدار: يعيد استخراج كل الكتب ويطابق بصمات المخرجات (tests/expected.sha256)
 test:
 	bash tests/regression.sh
+
+# إصدار البيانات العام (build/release/): النص بلا حركات افتراضيًّا؛ نسخة مشكولة بـ --keep-vowels
+release:
+	$(PY) -I scripts/export_release.py

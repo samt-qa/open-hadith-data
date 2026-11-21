@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/samt-qa/open-hadith-data/Docs/record.schema.json",
+  "title": "open-hadith-data record",
+  "description": "One hadith record in jsonl/<collection>.jsonl.gz (release 0.1.0). See Docs/DATA.md.",
+  "type": "object",
+  "required": ["id", "collection", "number", "numbers", "kitab", "bab", "loc", "edition", "text", "text_plain",
+               "isnad", "matn", "matn_confidence", "matn_method", "refs", "verse_refs", "corrected", "corrections"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z]+:(u[0-9]+|[0-9]+(\\.[0-9]+)?)$",
+           "description": "Stable id: <collection>:<first printed number>, '.2', '.3' for repeats, 'u<seq>' if unnumbered."},
+    "collection": {"type": "string", "enum": ["bukhari", "muslim", "abudawud", "tirmidhi", "nasai", "ibnmajah", "malik",
+      "darimi", "ahmad", "tabaranikabir", "tabaraniawsat", "tabaranisaghir", "tayalisi", "humaydi", "ibnjarud",
+      "adabmufrad", "tahawi", "nasaikubra", "ibnabishaybah", "hakim", "daraqutni", "ibnkhuzaymah", "ibnhibban",
+      "abdurrazzaq", "bayhaqi", "abuyala", "bazzar"]},
+    "number": {"type": ["integer", "null"], "description": "First printed number in the edition, or null."},
+    "numbers": {
+      "type": "object",
+      "description": "All numbering found in the edition.",
+      "properties": {
+        "printed": {"type": "array", "items": {"type": "integer"}},
+        "abd_al_baqi": {"type": "string"},
+        "series": {"type": "integer"},
+        "sub": {"type": "string"},
+        "mulhaq": {"type": "integer"},
+        "printed_as": {"type": ["integer", "array"], "items": {"type": "integer"}},
+        "unnumbered": {"type": "boolean"},
+        "misprint": {"type": "boolean"},
+        "repeated_in_source": {"type": "integer"}
+      },
+      "additionalProperties": true
+    },
+    "kitab": {"$ref": "#/$defs/section"},
+    "bab": {"$ref": "#/$defs/section"},
+    "loc": {"type": "array", "items": {"type": "object", "required": ["juz", "page"],
+            "properties": {"juz": {"type": ["integer", "string"]}, "page": {"type": "integer"}}}},
+    "edition": {"type": "object", "required": ["shamela_id", "name"],
+                "properties": {"shamela_id": {"type": "integer"}, "name": {"type": ["string", "null"]}}},
+    "text": {"type": "string", "description": "Full hadith text (unvocalised by default; vocalised in the --keep-vowels build)."},
+    "text_plain": {"type": "string", "description": "Normalised text for search: no harakat/tatweel, alef forms -> ا, ى -> ي, ة -> ه, single spaces."},
+    "isnad": {"type": ["string", "null"]},
+    "matn": {"type": ["string", "null"]},
+    "matn_confidence": {"type": ["string", "number", "null"]},
+    "matn_method": {"type": ["string", "null"]},
+    "narrators": {"type": "array", "items": {"type": "object", "required": ["id", "name"],
+                  "properties": {"id": {"type": "integer"}, "name": {"type": "string"}}}},
+    "refs": {"type": "object", "description": "Numbers of this hadith in other numbering systems (system -> value).",
+             "additionalProperties": {"type": ["string", "integer", "array"]}},
+    "verse_refs": {"type": "array", "items": {"type": "string"}},
+    "taqasim": {"type": "array", "items": {"type": "string"}, "description": "Ibn Hibban only: position in al-Taqasim wa-l-Anwa'."},
+    "abdullah_mark": {"type": "string", "description": "Ahmad only: narration added by his son Abdullah."},
+    "duplicate_fragment": {"type": "array", "items": {"type": "string"}, "description": "Ibn Hibban only: repeated fragment in the source."},
+    "corrected": {"type": "boolean"},
+    "corrections": {"type": "array", "items": {"type": "object", "required": ["item", "witnesses"],
+                    "additionalProperties": false,
+                    "properties": {"item": {"type": ["string", "null"]},
+                                   "witnesses": {"type": "array", "items": {"type": "string"}}}}}
+  },
+  "not": {"anyOf": [
+    {"required": ["notes"]}, {"required": ["grades"]}, {"required": ["sharh"]}, {"required": ["meter"]},
+    {"required": ["colophon"]}, {"required": ["text_source"]}, {"required": ["editor_omitted"]}, {"required": ["from_margin"]}
+  ]},
+  "$defs": {
+    "section": {"type": "object", "required": ["n", "title"],
+                "properties": {"n": {"type": "integer"}, "title": {"type": ["string", "null"]}}}
+  }
+}

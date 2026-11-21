@@ -57,6 +57,16 @@
 
 الطبعة المعتمدة لكل كتاب وشاهده في [`Docs/hadith-pilot-spec.md`](Docs/hadith-pilot-spec.md) (القسم 13.3)، وتقرير كل كتاب في [`reports/`](reports/).
 
+## التنزيل / Download
+
+حمّل آخر إصدار من صفحة [Releases](../../releases). فيه:
+
+- `jsonl/<book>.jsonl.gz`: سجل لكل حديث، ومعه السند والمتن مفصولين، وأرقامه في الترقيمات الأخرى.
+- `open-hadith-data.sqlite`: قاعدة جاهزة للتطبيقات، فيها بحث نصي عربي (FTS5).
+- `csv/<book>.csv.gz`: للتحليل في الجداول.
+
+دليل الحقول والأمثلة في [`Docs/DATA.md`](Docs/DATA.md). نص الإصدار بلا تشكيل، وبلا حواشي المحققين ولا أحكامهم.
+
 ## بنية السجل / Record format
 
 سطر JSON لكل سجل (`text/<key>/<key>.jsonl`):
