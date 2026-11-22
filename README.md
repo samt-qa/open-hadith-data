@@ -114,3 +114,13 @@ make test                               # فحص الانحدار
 - **متون الأحاديث:** ملك عام. **وعمل المحققين المعاصرين:** حقٌّ لأصحابه. التفصيل في [`LICENSE-DATA.md`](LICENSE-DATA.md).
 
 للاستشهاد بالمشروع انظر [`CITATION.cff`](CITATION.cff). وللإبلاغ عن خطأ في نص استعمل [قالب البلاغ](../../issues/new/choose).
+
+
+## ☕ ادعم المشروع / Support the project
+
+إذا أفادك هذا المشروع، يمكنك دعم تطويره عبر PayPal.
+If this project helps you, you can support its development via PayPal.
+
+[![PayPal](https://img.shields.io/badge/PayPal-Support-00457C?logo=paypal&logoColor=white)](https://paypal.me/SamtSoftware)
+
+👉 https://paypal.me/SamtSoftware
